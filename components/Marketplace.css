@@ -1,0 +1,222 @@
+.marketplace-container {
+  padding: 20px;
+  padding-bottom: 80px;
+  color: #fff;
+}
+
+.category-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 5px;
+  scrollbar-width: none;
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.category-scroll button {
+  background: var(--bg-glass);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.category-scroll button.active {
+  background: var(--accent-primary);
+  color: black;
+  border-color: var(--accent-primary);
+  font-weight: bold;
+}
+
+.voucher-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.voucher-card {
+  background: var(--bg-glass);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.voucher-card:not(.disabled):hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.voucher-card.disabled {
+  opacity: 0.5;
+  filter: grayscale(0.8);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: white;
+  padding: 4px;
+}
+
+.cost-badge {
+  background: rgba(0, 242, 234, 0.1);
+  color: var(--accent-primary);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.brand-name {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin: 4px 0 8px 0;
+  font-weight: 500;
+}
+
+.desc {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+  flex-grow: 1;
+  margin-bottom: 12px;
+}
+
+/* Loading Spinner on Button */
+.buy-btn {
+  width: 100%;
+  margin-top: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.buy-btn.loading {
+  background: #333;
+  color: transparent; /* Hide text */
+  pointer-events: none;
+}
+
+.voucher-card:not(.disabled) .buy-btn:not(.loading) {
+  background: var(--accent-primary);
+  color: black;
+  box-shadow: 0 0 10px rgba(0, 242, 234, 0.2);
+}
+
+.voucher-card:not(.disabled) .buy-btn:not(.loading):active {
+  transform: scale(0.98);
+}
+
+.spinner {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px; height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+/* Success Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.success-card {
+  background: linear-gradient(145deg, #1a1a2e, #000);
+  border: 1px solid var(--accent-primary);
+  padding: 40px 30px;
+  border-radius: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 0 50px rgba(0, 242, 234, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.confetti-burst { font-size: 3rem; margin-bottom: 10px; animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.success-logo { width: 60px; height: 60px; border-radius: 50%; margin: 15px auto; border: 3px solid #fff; }
+.success-card h2 { color: var(--accent-primary); margin: 0; font-size: 1.5rem; }
+.success-card h3 { margin: 10px 0; color: #fff; }
+.success-card p { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+
+.ticket-cutout {
+  background: #fff;
+  color: #000;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  border: 2px dashed #ccc;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--accent-primary);
+  border: none;
+  font-weight: 800;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #000;
+  text-transform: uppercase;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Stride: Move-to-Earn",
+  "description": "A gamified fitness application where steps convert to currency. Join clans, mint coins, and duel other users for stakes.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

@@ -1,0 +1,188 @@
+.ob-screen {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #02040a; /* Matches --bg-void */
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.ob-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  transition: background 0.5s ease;
+}
+
+.ob-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Graphics & Holo Effects */
+.ob-graphic-wrapper {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.holo-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.holo-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 30px rgba(255,255,255,0.05);
+}
+
+.holo-icon {
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Animations */
+.pulse { animation: pulse 3s infinite ease-in-out; }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; border-color: rgba(255,255,255,0.1); }
+  50% { transform: scale(1.1); opacity: 0.8; border-color: rgba(255,255,255,0.3); }
+}
+
+.spin-reverse { animation: spinRev 10s linear infinite; }
+@keyframes spinRev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+
+.float { animation: float 6s ease-in-out infinite; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Text */
+.ob-text-area {
+  margin-bottom: 40px;
+}
+
+.ob-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.ob-subtitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 10px 0 20px;
+}
+
+.ob-desc {
+  color: #94a3b8; /* --text-muted */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* CLAN SELECTION STYLES */
+.clan-select-area {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.clan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.clan-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.clan-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.clan-card.selected {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+  border-width: 2px;
+}
+
+.clan-icon { font-size: 1.8rem; margin-bottom: 8px; }
+.clan-name { font-weight: 700; font-size: 0.85rem; color: #fff; margin-bottom: 4px; text-align: center; }
+.clan-desc { font-size: 0.6rem; text-transform: uppercase; font-weight: 600; text-align: center; }
+
+/* Controls */
+.ob-dots {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.ob-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.ob-dot.active {
+  transform: scale(1.5);
+}
+
+.ob-btn {
+  background: transparent;
+  border: 2px solid;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+.ob-btn:active {
+  transform: scale(0.95);
+}

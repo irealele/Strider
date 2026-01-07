@@ -1,0 +1,58 @@
+.bottom-nav {
+  position: absolute;
+  bottom: 20px;
+  
+  /* THE BULLETPROOF CENTERING HACK */
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  
+  width: 90%;         /* Fits nicely on mobile */
+  max-width: 360px;   /* Cap width for tablets/desktop */
+  height: 60px;
+  
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  
+  display: flex;
+  justify-content: space-evenly; /* Ensures equal spacing for all buttons */
+  align-items: center;
+  z-index: 9999; /* Force it on top of everything */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  padding: 0;
+}
+
+/* Nav Items */
+.nav-item {
+  background: none;
+  border: none;
+  color: #555;
+  width: 40px;       /* Fixed hit area */
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2px;
+}
+
+/* THE NEON GLOW FOR ACTIVE STATE */
+.nav-item.active {
+  color: var(--accent-cyan);
+  transform: translateY(-3px);
+  background: rgba(0, 242, 234, 0.08); /* Subtle glow bg */
+}
+
+.nav-item.active svg {
+  filter: drop-shadow(0 0 8px var(--accent-cyan));
+}
